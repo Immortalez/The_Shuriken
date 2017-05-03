@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "936347571840",
+    "firebase_url": "https://the-shuriken.firebaseio.com",
+    "project_id": "the-shuriken",
+    "storage_bucket": "the-shuriken.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936347571840:android:a4416672c8fb3bdb",
+        "android_client_info": {
+          "package_name": "com.example.tomek.avoidtheblock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936347571840-84daa6u45ud0ao79jirrh15l9jng5j22.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tomek.avoidtheblock",
+            "certificate_hash": "1c2611c81cbcec13c52081da4ecdf0c87e29caf9"
+          }
+        },
+        {
+          "client_id": "936347571840-ssomii8aha5c7f4se297m793409hp3s6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1p0f_qfnJ1esnnhRXMBIzxQH0-wQPWx4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tomek.avoidtheblock.main">
+
+    <TextView
+        android:id="@+id/scoreLabel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Score: 300"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"/>
+    
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/startLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap to Start"
+            android:textSize="30sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="130dp"/>
+
+        <ImageView
+            android:id="@+id/playerBox"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/player"
+            android:layout_gravity="center_vertical"/>
+
+        <ImageView
+            android:id="@+id/xpBall"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/xp_ball"/>
+
+        <ImageView
+            android:id="@+id/xpBall2"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/xp_ball"/>
+
+        <ImageView
+            android:id="@+id/xpBall3"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:src="@drawable/xp_ball"/>
+
+        <ImageView
+            android:id="@+id/shuriken"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/shuriken"/>
+    </FrameLayout>
+
+</LinearLayout>
