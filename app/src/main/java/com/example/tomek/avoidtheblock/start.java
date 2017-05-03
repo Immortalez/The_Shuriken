@@ -36,7 +36,7 @@ public class start extends AppCompatActivity {
 
         // Creating request
         AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice(TEST_DEVICE_1)
+                .addTestDevice(TEST_DEVICE_1)
                 .build();
 
         // Start loading
