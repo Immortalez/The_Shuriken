@@ -21,7 +21,6 @@ public class start extends AppCompatActivity {
     final String FULLSCREEN_AD = "ca-app-pub-1069734417998391/6242556267";
     final String FULLSCREEN_TEST_AD = "ca-app-pub-3940256099942544/1033173712";
 
-/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
