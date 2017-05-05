@@ -15,7 +15,7 @@ import com.google.android.gms.ads.InterstitialAd;
 public class start extends AppCompatActivity {
 
 
-
+    /* //AD
     // https://firebase.google.com/docs/admob/android/interstitial  <-- Guide
 
     // Creating variable INTERSTITIAL of type InterstitialAd
@@ -23,7 +23,7 @@ public class start extends AppCompatActivity {
     final String TEST_DEVICE_1 = "E947D2E35979027CB03816189B5B617E";
     final String FULLSCREEN_AD = "ca-app-pub-1069734417998391/6242556267";
     final String FULLSCREEN_TEST_AD = "ca-app-pub-3940256099942544/1033173712";
-
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,7 @@ public class start extends AppCompatActivity {
         Button startButton = (Button) findViewById(R.id.startButton);
         final Switch stonogaSwitch = (Switch) findViewById(R.id.stonogaSwitch);
 
+        /* AD
         // Initializing variable INTERSTITIAL of type InterstitialAd
         // "ca-app-pub-3940256099942544/1033173712" is a test ad
         interstitial = new InterstitialAd(this);
@@ -78,7 +79,21 @@ public class start extends AppCompatActivity {
             }
         });
 
+    }*/
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (stonogaSwitch.isChecked()) {
+                    startGameStonoga();
+                } else {
+                    startGameNormal();
+                }
+            }
+        });
+
     }
+
 
     public void startGameNormal(){
         startActivity(new Intent(getApplicationContext(), main.class));
@@ -87,6 +102,7 @@ public class start extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), mainStonoga.class));
     }
 
+    /* AD
     // Create ad-requesting method
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
@@ -94,7 +110,7 @@ public class start extends AppCompatActivity {
                 .build();
 
         interstitial.loadAd(adRequest);
-    }
+    } */
 
 
     // Disable RETURN button
