@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".start"
+        <activity
+            android:name=".start"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,12 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".result"
+        <activity
+            android:name=".result"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mainStonoga"
             android:screenOrientation="portrait"/>
-        <activity android:name=".main"
-            android:screenOrientation="portrait"/>
-
-
     </application>
 
 </manifest>

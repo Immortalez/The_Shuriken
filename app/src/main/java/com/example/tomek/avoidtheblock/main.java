@@ -29,6 +29,7 @@ public class main extends AppCompatActivity {
     private ImageView xpBall2;
     private ImageView xpBall3;
     private ImageView shuriken;
+    private ImageView hearts;
 
     // Size
     private int frameHeight;
@@ -49,6 +50,9 @@ public class main extends AppCompatActivity {
 
     // Score
     private int score = 0;
+
+    // Lives
+    private int lives = 3;
 
     // Speed
     int playerBoxSpeed;
@@ -81,6 +85,7 @@ public class main extends AppCompatActivity {
         xpBall2 = (ImageView) findViewById(R.id.xpBall2);
         xpBall3 = (ImageView) findViewById(R.id.xpBall3);
         shuriken = (ImageView) findViewById(R.id.shuriken);
+        hearts = (ImageView) findViewById(R.id.hearts);
 
         // Move to out of screen
         xpBall.setX(900);
@@ -236,16 +241,28 @@ public class main extends AppCompatActivity {
 
         if(0 <= shurikenCenterX && shurikenCenterX <= playerBoxSize &&
                 playerBoxY <= shurikenCenterY && shurikenCenterY <= (playerBoxY + playerBoxSize)){
+            // the shuriken stays on the box before it moves out and destroys one more heart...
+            shurikenX = screenWidth + 50;
 
-            // Stop timer!
-            timer.cancel();
-            timer = null;
+            lives--;
             sound.playOverSound();
 
-            // Show result -- showing another activity
-            Intent intent = new Intent(getApplicationContext(), result.class);
-            intent.putExtra("SCORE", score);
-            startActivity(intent);
+            if(lives == 2){
+                hearts.setImageResource(R.drawable.heart2);
+            } else if(lives == 1){
+                hearts.setImageResource(R.drawable.heart1);
+            } else if(lives == 0){
+                hearts.setVisibility(View.GONE);
+                // Stop timer!
+                timer.cancel();
+                timer = null;
+                sound.playOverSound();
+
+                // Show result -- showing another activity
+                Intent intent = new Intent(getApplicationContext(), result.class);
+                intent.putExtra("SCORE", score);
+                startActivity(intent);
+            }
 
         }
     }

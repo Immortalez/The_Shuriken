@@ -9,13 +9,19 @@
 
     <TextView
         android:id="@+id/scoreLabel"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Score: 300"
-        android:textSize="18sp"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:gravity="center_vertical"/>
-    
+        android:text="Score: 300"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/hearts"
+        android:layout_width="99dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/heart3" />
+
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"

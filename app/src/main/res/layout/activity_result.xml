@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.tomek.avoidtheblock.result"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:weightSum="1">
 
 
     <TextView
@@ -38,5 +39,11 @@
         android:text="Try Again"
         android:textAllCaps="false"
         android:onClick="tryAgain"/>
+
+    <Button
+        android:id="@+id/buttonResetHS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESET High Score" />
 
 </LinearLayout>

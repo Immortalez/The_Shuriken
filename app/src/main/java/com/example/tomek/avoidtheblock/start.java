@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 public class start extends AppCompatActivity {
+
+
 
     // https://firebase.google.com/docs/admob/android/interstitial  <-- Guide
 
@@ -27,6 +30,7 @@ public class start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         Button startButton = (Button) findViewById(R.id.startButton);
+        final Switch stonogaSwitch = (Switch) findViewById(R.id.stonogaSwitch);
 
         // Initializing variable INTERSTITIAL of type InterstitialAd
         // "ca-app-pub-3940256099942544/1033173712" is a test ad
@@ -46,7 +50,7 @@ public class start extends AppCompatActivity {
             @Override
             public void onAdClosed() {
                 requestNewInterstitial();
-                startGame();
+                startGameNormal();
             }
         });
 
@@ -59,7 +63,11 @@ public class start extends AppCompatActivity {
                 if(interstitial.isLoaded()){
                     interstitial.show();
                 } else {
-                    startGame();
+                    if(stonogaSwitch.isChecked()){
+                        startGameStonoga();
+                    } else{
+                        startGameNormal();
+                    }
                     requestNewInterstitial();
                 }
 
@@ -68,8 +76,11 @@ public class start extends AppCompatActivity {
 
     }
 
-    public void startGame(){
+    public void startGameNormal(){
         startActivity(new Intent(getApplicationContext(), main.class));
+    }
+    public void startGameStonoga(){
+        startActivity(new Intent(getApplicationContext(), mainStonoga.class));
     }
 
     // Create ad-requesting method

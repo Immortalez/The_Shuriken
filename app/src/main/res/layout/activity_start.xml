@@ -6,7 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.tomek.avoidtheblock.start"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:weightSum="1">
+
+    <Switch
+        android:id="@+id/stonogaSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stonoga Mode"
+        android:textAlignment="center"
+        android:textSize="18dp" />
 
     <TextView
         android:layout_width="wrap_content"

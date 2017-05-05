@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import static com.example.tomek.avoidtheblock.R.id.highScoreLabel;
 
 public class result extends AppCompatActivity {
 
@@ -18,6 +21,7 @@ public class result extends AppCompatActivity {
 
         TextView scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         TextView highScoreLabel = (TextView) findViewById(R.id.highScoreLabel);
+        Button buttonResetHS = (Button) findViewById(R.id.buttonResetHS);
 
         int score = getIntent().getIntExtra("SCORE", 0);
         scoreLabel.setText(score + ""); // + "" żeby nie robić String.valueOf(score)
@@ -36,11 +40,30 @@ public class result extends AppCompatActivity {
         } else {
             highScoreLabel.setText("High Score: " + highScore);
         }
-    }
 
+        buttonResetHS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetHighScore();
+            }
+        });
+
+
+    }
 
         public void tryAgain(View view) {
             startActivity(new Intent(getApplicationContext(), start.class));
+        }
+
+        public void resetHighScore() {
+            startActivity(new Intent(getApplicationContext(), start.class));
+            SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
+            int highScore = settings.getInt("HIGH_SCORE", 0);
+
+            // Save
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("HIGH_SCORE", 0);
+            editor.commit();
         }
 
         // Disable RETURN button
