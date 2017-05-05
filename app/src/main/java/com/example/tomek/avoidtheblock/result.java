@@ -14,14 +14,19 @@ import static com.example.tomek.avoidtheblock.R.id.highScoreLabel;
 
 public class result extends AppCompatActivity {
 
+    TextView scoreLabel;
+    TextView highScoreLabel;
+    Button buttonResetHS;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        TextView scoreLabel = (TextView) findViewById(R.id.scoreLabel);
-        TextView highScoreLabel = (TextView) findViewById(R.id.highScoreLabel);
-        Button buttonResetHS = (Button) findViewById(R.id.buttonResetHS);
+        scoreLabel = (TextView) findViewById(R.id.scoreLabel);
+        highScoreLabel = (TextView) findViewById(R.id.highScoreLabel);
+        buttonResetHS = (Button) findViewById(R.id.buttonResetHS);
 
         int score = getIntent().getIntExtra("SCORE", 0);
         scoreLabel.setText(score + ""); // + "" żeby nie robić String.valueOf(score)
@@ -56,7 +61,7 @@ public class result extends AppCompatActivity {
         }
 
         public void resetHighScore() {
-            startActivity(new Intent(getApplicationContext(), start.class));
+            highScoreLabel.setText("High Score: 0");
             SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
             int highScore = settings.getInt("HIGH_SCORE", 0);
 

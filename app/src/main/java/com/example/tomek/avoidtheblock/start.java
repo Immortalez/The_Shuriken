@@ -50,7 +50,11 @@ public class start extends AppCompatActivity {
             @Override
             public void onAdClosed() {
                 requestNewInterstitial();
-                startGameNormal();
+                if(stonogaSwitch.isChecked()){
+                    startGameStonoga();
+                } else{
+                    startGameNormal();
+                }
             }
         });
 
