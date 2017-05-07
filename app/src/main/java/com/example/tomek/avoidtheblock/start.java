@@ -6,14 +6,27 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.formats.NativeAd;
+
+import org.w3c.dom.Text;
 
 public class start extends AppCompatActivity {
 
+    TextView titleLabel;
+    ImageView points30;
+    ImageView points20;
+    ImageView points10;
+    ImageView life1;
+    ImageView gover;
+    Switch stonogaSwitch;
 
     /* //AD
     // https://firebase.google.com/docs/admob/android/interstitial  <-- Guide
@@ -30,7 +43,13 @@ public class start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         Button startButton = (Button) findViewById(R.id.startButton);
-        final Switch stonogaSwitch = (Switch) findViewById(R.id.stonogaSwitch);
+        stonogaSwitch = (Switch) findViewById(R.id.stonogaSwitch);
+        titleLabel = (TextView) findViewById(R.id.titleLabel);
+        points30 = (ImageView) findViewById(R.id.points30);
+        points20 = (ImageView) findViewById(R.id.points20);
+        points10 = (ImageView) findViewById(R.id.points10);
+        life1 = (ImageView) findViewById(R.id.life1);
+        gover = (ImageView) findViewById(R.id.gover);
 
         /* AD
         // Initializing variable INTERSTITIAL of type InterstitialAd
@@ -81,6 +100,17 @@ public class start extends AppCompatActivity {
 
     }*/
 
+        stonogaSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(stonogaSwitch.isChecked()){
+                    imagesStonoga();
+                }else{
+                    imagesNormal();
+                }
+            }
+        });
+
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +130,65 @@ public class start extends AppCompatActivity {
     }
     public void startGameStonoga(){
         startActivity(new Intent(getApplicationContext(), mainStonoga.class));
+    }
+
+    public void imagesNormal(){
+        titleLabel.setText("The Shuriken");
+
+        points30.requestLayout();
+        points30.setImageResource(R.drawable.xp_ball);
+        points30.getLayoutParams().height = 20;
+        points30.getLayoutParams().width = 20;
+
+        points20.requestLayout();
+        points20.setImageResource(R.drawable.xp_ball);
+        points20.getLayoutParams().height = 12;
+        points20.getLayoutParams().width = 12;
+
+        points10.requestLayout();
+        points10.setImageResource(R.drawable.xp_ball);
+        points10.getLayoutParams().height = 6;
+        points10.getLayoutParams().width = 6;
+
+        /*  // Nothing changes here anyway
+        life1.requestLayout();
+        life1.setImageResource(R.drawable.heart);
+        life1.getLayoutParams().height = 15;
+        life1.getLayoutParams().width = 15; */
+
+        gover.requestLayout();
+        gover.setImageResource(R.drawable.shuriken);
+        gover.getLayoutParams().height = 30;
+        gover.getLayoutParams().width = 30;
+    }
+    public void imagesStonoga(){
+        titleLabel.setText("The Stonoga");
+
+        points30.requestLayout();
+        points30.setImageResource(R.drawable.duda);
+        points30.getLayoutParams().height = 35;
+        points30.getLayoutParams().width = 35;
+
+        points20.requestLayout();
+        points20.setImageResource(R.drawable.ziobro);
+        points20.getLayoutParams().height = 25;
+        points20.getLayoutParams().width = 25;
+
+        points10.requestLayout();
+        points10.setImageResource(R.drawable.swetru);
+        points10.getLayoutParams().height = 15;
+        points10.getLayoutParams().width = 15;
+
+        /*  // Nothing changes here anyway
+        life1.requestLayout();
+        life1.setImageResource(R.drawable.heart);
+        life1.getLayoutParams().height = 15;
+        life1.getLayoutParams().width = 15; */
+
+        gover.requestLayout();
+        gover.setImageResource(R.drawable.karakan);
+        gover.getLayoutParams().height = 50;
+        gover.getLayoutParams().width = 50;
     }
 
     /* AD

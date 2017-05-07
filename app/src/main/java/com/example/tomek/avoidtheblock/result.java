@@ -44,6 +44,9 @@ public class result extends AppCompatActivity {
         buttonResetHS = (Button) findViewById(R.id.buttonResetHS);
         tryAgainButton = (Button) findViewById(R.id.tryAgainButton);
 
+
+
+
         int score = getIntent().getIntExtra("SCORE", 0);
         scoreLabel.setText(score + ""); // + "" żeby nie robić String.valueOf(score)
 
